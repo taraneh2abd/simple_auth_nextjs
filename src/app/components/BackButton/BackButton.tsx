@@ -2,17 +2,20 @@
 import { useEffect, useState } from "react";
 
 export default function BackButton() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "dark") {
-      document.documentElement.classList.add("dark");
-      setDarkMode(true);
-    } else {
-      document.documentElement.classList.remove("dark");
-      setDarkMode(false);
-    }
+    const checkDark = () => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    };
+
+    checkDark();
+
+    // برای وقتی که کاربر تغییر داد
+    const observer = new MutationObserver(checkDark);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+
+    return () => observer.disconnect();
   }, []);
 
   const goBack = () => {
@@ -26,8 +29,8 @@ export default function BackButton() {
         padding: 9,
         borderRadius: "999px",
         border: "none",
-        background: darkMode ? "#7882ad" : "#ffffff",
-        color: darkMode ? "#1f1f1f" : "#e0e0e0",
+        background: isDark ? "#7882ad" : "#ffffff",
+        color: isDark ? "#1f1f1f" : "#e0e0e0",
         fontSize: 30,
         cursor: "pointer",
         transition: "background 0.3s ease, color 0.3s ease",
