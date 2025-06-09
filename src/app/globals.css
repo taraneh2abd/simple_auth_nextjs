@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f9fafb; /* رنگ پس‌زمینه روشن ملایم */
-  --foreground: #1f2937; /* رنگ متن تیره خاکستری */
+  --foreground: #f9fafb; /* رنگ پس‌زمینه روشن ملایم */
+  --background: #1f2937; /* رنگ متن تیره خاکستری */
   --primary: #2563eb;    /* رنگ اصلی آبی */
   --secondary: #4b5563;  /* رنگ ثانویه خاکستری */
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -11,8 +11,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #111827; /* پس‌زمینه تیره */
-    --foreground: #f3f4f6; /* متن روشن */
+    --foreground: #111827; /* پس‌زمینه تیره */
+    --background: #f3f4f6; /* متن روشن */
     --primary: #3b82f6;    /* آبی روشن */
     --secondary: #9ca3af;  /* خاکستری ملایم */
   }

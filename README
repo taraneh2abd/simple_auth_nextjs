@@ -1,4 +1,4 @@
-/auth
-    page.tsx
-    AuthButton.tsx
-    auth.module.scss
+git add .
+git commit -m "correct"
+git branch -M main
+git push -u origin main
