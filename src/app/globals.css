@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f9fafb; /* رنگ پس‌زمینه روشن ملایم */
+  --foreground: #1f2937; /* رنگ متن تیره خاکستری */
+  --primary: #2563eb;    /* رنگ اصلی آبی */
+  --secondary: #4b5563;  /* رنگ ثانویه خاکستری */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'Fira Mono', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #111827; /* پس‌زمینه تیره */
+    --foreground: #f3f4f6; /* متن روشن */
+    --primary: #3b82f6;    /* آبی روشن */
+    --secondary: #9ca3af;  /* خاکستری ملایم */
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+

@@ -1,0 +1,32 @@
+@import "../../styles/variables.module.scss";
+
+.container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+.authButton {
+  background-color: $button-bg;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover:enabled {
+    background-color: $button-hover-bg;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
