@@ -54,15 +54,25 @@ flex-direction: column;
       color: #eee;
     }
   }
-  h1 {
-    font-size:larger;
-    margin-bottom: 30px;
-    color: #333;
-
-    :global(html.dark) & {
+h1 {
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: inherit;
+  :global(html.dark) & {
       color: #eee;
     }
+}
+
+.username {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #b843e6;
+
+  :global(html.dark) & {
+    color: #0e184a;
   }
+}
+
 }
 
 .authButton {
@@ -93,6 +103,7 @@ flex-direction: column;
     }
   }
 }
+
 
 .tableWrapper {
   width: 100%;

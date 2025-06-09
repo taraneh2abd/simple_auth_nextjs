@@ -24,9 +24,14 @@ export default function DashboardPage() {
       <div className={styles.container} style={{ marginTop: "0px" }}>
         {user ? (
           <>
-            <h1 className={styles.title}>
-              Welcome, {user.name.first}!
-            </h1>
+        <h1>
+          Welcome,{" "} 
+          <span className={styles.username}>
+            {user.name.first}!
+                      </span>
+        </h1>
+
+
 
             <div className={styles.tableWrapper}>
               <table>
