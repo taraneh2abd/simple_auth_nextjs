@@ -7,7 +7,7 @@ interface AuthButtonProps {
   onClick: () => void;
   loading: boolean;
   children: React.ReactNode;
-  disabled?: boolean;  // این خط رو اضافه کن
+  disabled?: boolean;
 }
 
 
@@ -17,7 +17,7 @@ export default function AuthButton({ onClick, loading, children, disabled }: Aut
       className={styles.authButton}
       onClick={onClick}
       disabled={disabled}
-      type="submit" // بهتر بذاری اینجا چون دکمه submit هست
+        type="submit"
     >
       {loading ? "please wait...." : children}
     </button>

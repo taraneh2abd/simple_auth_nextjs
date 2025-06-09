@@ -1,5 +1,5 @@
 .wrapper {
-flex-direction: column;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,25 +54,25 @@ flex-direction: column;
       color: #eee;
     }
   }
-h1 {
-  font-weight: normal;
-  font-size: 1.5rem;
-  color: inherit;
-  :global(html.dark) & {
+
+  h1 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    color: inherit;
+    :global(html.dark) & {
       color: #eee;
     }
-}
-
-.username {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #b843e6;
-
-  :global(html.dark) & {
-    color: #0e184a;
   }
-}
 
+  .username {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #b843e6;
+
+    :global(html.dark) & {
+      color: #0e184a;
+    }
+  }
 }
 
 .authButton {
@@ -104,7 +104,6 @@ h1 {
   }
 }
 
-
 .tableWrapper {
   width: 100%;
   display: flex;
@@ -118,14 +117,22 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
     overflow: hidden;
+    table-layout: fixed;
 
     td {
       padding: 12px 16px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     td:first-child {
       background: #d7baff;
       font-weight: bold;
+      width: 40%;
+    }
+
+    td:last-child {
+      width: 60%;
     }
 
     tr {
@@ -149,5 +156,48 @@ h1 {
         border-bottom: 1px solid #a9a9a9;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 90vw;
+    padding: 20px 10px;
+  }
+
+  .tableWrapper {
+    table {
+      width: 100%;
+      max-width: 100%;
+      font-size: 0.9rem;
+    }
+
+    td:first-child {
+      width: 45%;
+      font-weight: 600;
+      padding: 10px 8px;
+    }
+
+    td:last-child {
+      width: 55%;
+      padding: 10px 8px;
+    }
+  }
+
+  .container span {
+    font-size: large;
+  }
+
+  .container h1 {
+    font-size: 1.2rem;
+  }
+
+  .username {
+    font-size: 1.8rem;
+  }
+
+  .authButton {
+    font-size: 1rem;
+    padding: 8px 20px;
   }
 }
