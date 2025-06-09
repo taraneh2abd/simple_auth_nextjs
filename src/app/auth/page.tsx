@@ -1,8 +1,8 @@
 "use client";
 import ThemeToggle from "@/app/components/ThemeToggle/ThemeToggle";
+import AuthButton from "@/app/components/AuthButton/AuthButton";
 import React, { useState } from "react";
 import styles from "./auth.module.scss";
-import AuthButton from "./AuthButton";
 import { useRouter } from "next/navigation";
 
 export default function AuthPage() {
