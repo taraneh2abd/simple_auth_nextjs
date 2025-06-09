@@ -7,7 +7,7 @@ import styles from "./dashboard.module.scss";
 export default function DashboardPage() {
   const router = useRouter();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const user = localStorage.getItem("user");
     if (!user) {
       router.replace("/auth");
@@ -15,8 +15,11 @@ export default function DashboardPage() {
   }, [router]);
 
   return (
-    <main className={styles.container}>
-      <h1>Welcome to the Dashboard</h1>
+    <main className={styles.wrapper}>
+      <div className={styles.container}>
+        <h1>Welcome to the Dashboard</h1>
+        <p>خوش آمدید! این صفحه داشبورد شما است.</p>
+      </div>
     </main>
   );
 }

@@ -32,16 +32,17 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       style={{
         position: "fixed",
-        bottom: 520,    // بهتره مقادیر px رو عدد بذاری، راحت‌تره
-        left: 20,
-        padding: 10,
+        bottom: 40,
+        left: 40,
+        padding: 20,
         borderRadius: "999px",
         border: "none",
-        background: darkMode ? "#901E3E" : "#121212",
+        background: darkMode ? "#7882ad" : "#194369",
         color: darkMode ? "#1f1f1f" : "#e0e0e0",
-        fontSize: 20,
+        fontSize: 36, // بزرگ‌تر شد
         cursor: "pointer",
         transition: "background 0.3s ease, color 0.3s ease",
+        boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
       }}
       aria-label="Toggle theme"
     >
