@@ -1,18 +1,41 @@
-@import "../../styles/variables.module.scss";
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9fafb;
+
+  :global(html.dark) & {
+    background-color: #121212;
+  }
+}
 
 .container {
   max-width: 400px;
-  margin: 100px auto;
-  padding: 20px;
+  width: 100%;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
+
+  :global(html.dark) & {
+    background: #1e1e1e;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
+  }
 
   h1 {
     margin-bottom: 30px;
+    color: #333;
+
+    :global(html.dark) & {
+      color: #eee;
+    }
   }
 }
 
 .authButton {
-  background-color: $button-bg;
+  background-color: #3b82f6;
   color: white;
   border: none;
   padding: 10px 25px;
@@ -22,11 +45,20 @@
   transition: background-color 0.3s ease;
 
   &:hover:enabled {
-    background-color: $button-hover-bg;
+    background-color: #2563eb;
   }
 
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+  }
+
+  :global(html.dark) & {
+    background-color: #2563eb;
+    color: #f0f0f0;
+
+    &:hover:enabled {
+      background-color: #1e40af;
+    }
   }
 }

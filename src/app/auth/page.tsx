@@ -9,22 +9,14 @@ export default function AuthPage() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();  // جلوی رفرش صفحه رو می‌گیره
     setLoading(true);
     try {
       const res = await fetch("https://randomuser.me/api/?results=1&nat=us");
       const data = await res.json();
       const user = data.results[0];
-        localStorage.setItem("user", JSON.stringify(user));
-        console.log("All localStorage contents:");
-
-
-        for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    const value = localStorage.getItem(key!);
-    console.log(`${key}:`, value);
-    }
-
+      localStorage.setItem("user", JSON.stringify(user));
       router.push("/dashboard");
     } catch (error) {
       alert("خطا در ورود");
@@ -33,11 +25,14 @@ export default function AuthPage() {
   };
 
   return (
-    <main className={styles.container}>
-      <h1>صفحه ورود</h1>
-      <AuthButton onClick={handleLogin} loading={loading}>
-        ورود
-      </AuthButton>
-    </main>
+    <div className={styles.wrapper}>
+      <form className={styles.container} onSubmit={handleLogin}>
+        <h1>صفحه ورود</h1>
+        {/* اگر input داری اینجا بذار */}
+        <AuthButton loading={loading} onClick={() => {}} disabled={loading}>
+          ورود
+        </AuthButton>
+      </form>
+    </div>
   );
 }
