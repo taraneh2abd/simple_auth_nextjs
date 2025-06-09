@@ -1,0 +1,56 @@
+/* globals.scss */
+
+/* متغیرهای حالت روشن */
+$button-bg: #3b82f6;
+$button-hover-bg: #2563eb;
+$button-color: white;
+
+/* متغیرهای حالت تاریک */
+$button-dark-bg: #2563eb;
+$button-dark-hover-bg: #1e40af;
+$button-dark-color: #f0f0f0;
+
+/* کانتینر */
+.container {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    margin-bottom: 30px;
+  }
+}
+
+/* دکمه ورود */
+.authButton {
+  background-color: $button-bg;
+  color: $button-color;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover:enabled {
+    background-color: $button-hover-bg;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+/* حالت تاریک */
+html.dark {
+  .authButton {
+    background-color: $button-dark-bg;
+    color: $button-dark-color;
+
+    &:hover:enabled {
+      background-color: $button-dark-hover-bg;
+    }
+  }
+}
