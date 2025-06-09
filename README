@@ -1,4 +1,4 @@
 git add .
-git commit -m "images?? good"
+git commit -m "all correct"
 git branch -M main
 git push -u origin main

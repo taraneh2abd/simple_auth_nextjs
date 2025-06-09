@@ -24,26 +24,27 @@ export default function DashboardPage() {
       <div className={styles.container} style={{ marginTop: "0px" }}>
         {user ? (
           <>
-        <h1>
-          Welcome,{" "} 
-          <span className={styles.username}>
-            {user.name.first}!
-                      </span>
-        </h1>
-
-
+            <h1>
+              Welcome,{" "}
+              <span className={styles.username}>
+                {user?.name?.first ?? "User"}!
+              </span>
+            </h1>
 
             <div className={styles.tableWrapper}>
               <table>
                 <tbody>
-                  <TableRow label="Full Name" value={`${user.name.title} ${user.name.first} ${user.name.last}`} />
-                  <TableRow label="Email" value={user.email} />
-                  <TableRow label="Username" value={user.login.username} />
-                  <TableRow label="Phone" value={user.phone} />
-                  <TableRow label="Gender" value={user.gender} />
-                  <TableRow label="City" value={user.location.city} />
-                  <TableRow label="Country" value={user.location.country} />
-                  <TableRow label="Age" value={user.dob.age} />
+                  <TableRow
+                    label="Full Name"
+                    value={`${user?.name?.title ?? ""} ${user?.name?.first ?? ""} ${user?.name?.last ?? ""}`}
+                  />
+                  <TableRow label="Email" value={user?.email ?? "N/A"} />
+                  <TableRow label="Username" value={user?.login?.username ?? "N/A"} />
+                  <TableRow label="Phone" value={user?.phone ?? "N/A"} />
+                  <TableRow label="Gender" value={user?.gender ?? "N/A"} />
+                  <TableRow label="City" value={user?.location?.city ?? "N/A"} />
+                  <TableRow label="Country" value={user?.location?.country ?? "N/A"} />
+                  <TableRow label="Age" value={user?.dob?.age ?? "N/A"} />
                 </tbody>
               </table>
             </div>
@@ -56,11 +57,11 @@ export default function DashboardPage() {
   );
 }
 
-function TableRow({ label, value }: { label: string; value: string }) {
+function TableRow({ label, value }: { label: string; value?: string | number }) {
   return (
     <tr>
       <td className={styles.labelCell}>{label}</td>
-      <td className={styles.valueCell}>{value}</td>
+      <td className={styles.valueCell}>{value ?? "N/A"}</td>
     </tr>
   );
 }

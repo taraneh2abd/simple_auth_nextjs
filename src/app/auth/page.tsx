@@ -38,10 +38,12 @@ export default function AuthPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const user = { name: "Sample User" };
+      const res = await fetch("https://randomuser.me/api/?results=1&nat=us");
+      const data = await res.json();
+      const user = data.results[0];
       localStorage.setItem("user", JSON.stringify(user));
       router.push("/dashboard");
-    } catch {
+    } catch (error) {
       alert("error in logging in");
     }
     setLoading(false);
