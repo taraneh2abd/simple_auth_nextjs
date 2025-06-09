@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import "./BackButton.scss";
+import CircleButton from "@/app/components/CircleButton/CircleButton";
 
 export default function BackButton() {
   const [isDark, setIsDark] = useState(false);
@@ -26,11 +26,8 @@ export default function BackButton() {
   };
 
   return (
-    <button
-      onClick={goBack}
-      className={isDark ? "darkBtn" : "lightBtn"}
-    >
-      {"👈"}
-    </button>
+    <CircleButton onClick={goBack} isDark={isDark}>
+      👈
+    </CircleButton>
   );
 }
