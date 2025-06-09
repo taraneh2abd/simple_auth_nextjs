@@ -1,5 +1,5 @@
 .wrapper {
-flex-direction: column;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +29,9 @@ flex-direction: column;
   }
 }
 
+
+
+
 .container {
   max-width: 400px;
   width: 100%;
@@ -54,7 +57,7 @@ flex-direction: column;
     }
   }
   h1 {
-    font-size:larger;
+    font-size: larger;
     margin-bottom: 30px;
     color: #333;
 
@@ -63,4 +66,3 @@ flex-direction: column;
     }
   }
 }
-
