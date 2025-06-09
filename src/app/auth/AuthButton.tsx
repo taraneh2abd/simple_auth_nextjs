@@ -12,14 +12,14 @@ interface AuthButtonProps {
 
 
 export default function AuthButton({ onClick, loading, children, disabled }: AuthButtonProps) {
-  return (
+    return (
     <button
       className={styles.authButton}
       onClick={onClick}
       disabled={disabled}
       type="submit" // بهتر بذاری اینجا چون دکمه submit هست
     >
-      {loading ? "لطفا صبر کنید..." : children}
+      {loading ? "please wait...." : children}
     </button>
   );
 }

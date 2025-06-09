@@ -28,25 +28,26 @@ export default function ThemeToggle() {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      style={{
-        position: "fixed",
-        bottom: 40,
-        left: 40,
-        padding: 20,
-        borderRadius: "999px",
-        border: "none",
-        background: darkMode ? "#7882ad" : "#194369",
-        color: darkMode ? "#1f1f1f" : "#e0e0e0",
-        fontSize: 36, // بزرگ‌تر شد
-        cursor: "pointer",
-        transition: "background 0.3s ease, color 0.3s ease",
-        boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-      }}
-      aria-label="Toggle theme"
-    >
-      {darkMode ? "🌞" : "🌙"}
-    </button>
+// در ThemeToggle
+<button
+  onClick={toggleTheme}
+  style={{
+    padding: 9, // کمتر شد
+    borderRadius: "999px",
+    border: "none",
+    background: darkMode ? "#7882ad" : "#ffffff",
+    color: darkMode ? "#1f1f1f" : "#e0e0e0",
+    fontSize: 30, // کوچکتر شد
+    cursor: "pointer",
+    transition: "background 0.3s ease, color 0.3s ease",
+    boxShadow: "0 3px 10px rgba(0,0,0,0.2)",
+    margin: "0 10px",
+    marginBottom: "25px",
+    // boxShadow: "0 5px 15px rgba(0, 0, 0, 0.25)"
+  }}
+>
+  {darkMode ? "🌞" : "🌙"}
+</button>
+
   );
 }

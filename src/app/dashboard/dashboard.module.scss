@@ -1,31 +1,94 @@
 .wrapper {
+flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #667eea, #764ba2);
   padding: 20px;
+  background: linear-gradient(
+    135deg,
+    #89f7fe 0%,
+    #66a6ff 25%,
+    #667eea 40%,
+    #9d66ea 60%,
+    #db66ea 85%,
+    #ea66df 100%
+  );
+
+  :global(html.dark) & {
+    background: linear-gradient(
+      135deg,
+      #041C32 0%,
+      #142850 20%,
+      #143450 40%,
+      #144050 60%,
+      #144f50 80%,
+      #145047 90%,
+      #14503b 100%
+    );
+  }
 }
 
 .container {
-  max-width: 600px;
+  max-width: 400px;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  padding: 40px 30px;
+  padding: 30px 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  color: #333;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #4a148c; /* بنفش تیره */
+  :global(html.dark) & {
+    background: #7882ad;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.05);
   }
 
-  p {
-    font-size: 1.1rem;
-    color: #555;
+  span {
+    font-size: xx-large;
+    margin-bottom: 30px;
+    color: #333;
+
+    :global(html.dark) & {
+      color: #eee;
+    }
+  }
+  h1 {
+    font-size:larger;
+    margin-bottom: 30px;
+    color: #333;
+
+    :global(html.dark) & {
+      color: #eee;
+    }
+  }
+}
+
+.authButton {
+  background-color: #6855e6;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+  &:hover:enabled {
+    background-color: #db66ea;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  :global(html.dark) & {
+    background-color: #194369;
+    color: #f0f0f0;
+
+    &:hover:enabled {
+      background-color: #041C32;
+    }
   }
 }
