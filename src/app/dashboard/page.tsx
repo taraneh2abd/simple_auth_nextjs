@@ -1,48 +1,61 @@
 "use client";
 import ThemeToggle from "@/app/components/ThemeToggle/ThemeToggle";
 import BackButton from "@/app/components/BackButton/BackButton";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./dashboard.module.scss";
-// import AuthButton from "./AuthButton";
-import { useRouter } from "next/navigation";
 
 export default function DashboardPage() {
-  const [loading, setLoading] = useState(false);
-  const router = useRouter();
+  const [user, setUser] = useState<any>(null);
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();  // جلوی رفرش صفحه رو می‌گیره
-    setLoading(true);
-    try {
-      const res = await fetch("https://randomuser.me/api/?results=1&nat=us");
-      const data = await res.json();
-      const user = data.results[0];
-      localStorage.setItem("user", JSON.stringify(user));
-      router.push("/dashboard");
-    } catch (error) {
-      alert("error in logging in");
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
     }
-    setLoading(false);
-  };
+  }, []);
 
-return (
-  <div className={styles.wrapper}>
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-      <BackButton />
-      <ThemeToggle />
-      {/* <ThemeToggle />
-      <ThemeToggle /> */}
+  return (
+    <div className={styles.wrapper}>
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+        <BackButton />
+        <ThemeToggle />
+      </div>
+
+      <div className={styles.container} style={{ marginTop: "0px" }}>
+        {user ? (
+          <>
+            <h1 className={styles.title}>
+              Welcome, {user.name.first}!
+            </h1>
+
+            <div className={styles.tableWrapper}>
+              <table>
+                <tbody>
+                  <TableRow label="Full Name" value={`${user.name.title} ${user.name.first} ${user.name.last}`} />
+                  <TableRow label="Email" value={user.email} />
+                  <TableRow label="Username" value={user.login.username} />
+                  <TableRow label="Phone" value={user.phone} />
+                  <TableRow label="Gender" value={user.gender} />
+                  <TableRow label="City" value={user.location.city} />
+                  <TableRow label="Country" value={user.location.country} />
+                  <TableRow label="Age" value={user.dob.age} />
+                </tbody>
+              </table>
+            </div>
+          </>
+        ) : (
+          <h2 style={{ textAlign: "center", marginTop: "50px" }}>No user data found.</h2>
+        )}
+      </div>
     </div>
+  );
+}
 
-        <form className={styles.container} onSubmit={handleLogin}>
-            <span>hello!</span>
-      <h1>please click below to redirect to dashboard</h1>
-      {/* اگر input داری اینجا بذار */}
-      {/* <AuthButton loading={loading} onClick={() => {}} disabled={loading}>
-        login
-      </AuthButton> */}
-    </form>
-  </div>
-);
-
+function TableRow({ label, value }: { label: string; value: string }) {
+  return (
+    <tr>
+      <td className={styles.labelCell}>{label}</td>
+      <td className={styles.valueCell}>{value}</td>
+    </tr>
+  );
 }
